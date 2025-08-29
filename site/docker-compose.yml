@@ -1,0 +1,18 @@
+networks:
+  lan_a:
+    ipam:
+      config:
+        - subnet: 172.31.0.0/24
+
+services:
+  citynet:
+    hostname: citynet
+    build: 
+      context: ./cityNet/
+    restart: always
+    ports:
+      - "9999:22"
+    networks:
+      lan_a:
+        ipv4_address: 172.31.0.7
+

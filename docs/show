@@ -1,0 +1,7 @@
+#!/usr/bin/zsh
+
+if [ "1" -eq $1 ];then
+    cat engdoc.md | bat -p  -l markdown
+else
+    cat doc.md | bat -p -l markdown
+fi

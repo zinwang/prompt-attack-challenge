@@ -1,0 +1,33 @@
+#!/bin/zsh
+
+SESSION="NSYSU ISC"
+startFromNone=1
+
+doTmuxRun=$(tmux display-message -p '#S' 2>&1 | head -c 2)
+if [ "no" = $doTmuxRun ]; then
+    tmux new-session -d -s $SESSION
+fi
+
+oldWindowIndex=$(tmux display-message -p '#I')
+
+tmux new-window
+tmux split-window -h  "cd $(pwd)/docs; ./show $1"
+tmux rotate-window
+tmux split-window -v
+#tmux resizep -y "30%"
+#tmux select-pane -U
+
+tmux select-pane -U
+tmux send-keys './challenge-1/problem' C-m 
+#tmux select-pane -D
+#tmux send-keys './challenge-2/problem' C-m
+tmux select-pane -D
+tmux send-keys './judge' C-m
+
+
+tmux kill-window -t $oldWindowIndex 
+
+if [ "1" -eq $startFromNone ];then
+    tmux attach-session -t $SESSION
+fi 
+

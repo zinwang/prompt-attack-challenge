@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+KEY_FILE="./challenge-1/.flag"
+
+check_key() {
+    echo "Connecting to CityNet Monitoring System, Dawson District..."
+    echo "Please enter the key:"
+    read input_key  # Read the input key silently
+
+    # Read the key from the file
+    file_key=$(cat "$KEY_FILE")
+
+    # Compare the input key with the key from the file
+    if [[ "$input_key" == "$file_key" ]]; then
+        echo "Access granted. Logging in..."
+        tmux resize-pane -Z
+        sshpass -p 'passwd' ssh root@127.0.0.1 -p 9999  
+    else
+        echo "Access denied. Incorrect key."
+    fi
+}
+
+# Main script execution
+while true;
+do
+    clear
+    check_key
+done

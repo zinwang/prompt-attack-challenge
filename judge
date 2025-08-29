@@ -14,7 +14,7 @@ check_key() {
     if [[ "$input_key" == "$file_key" ]]; then
         echo "Access granted. Logging in..."
         tmux resize-pane -Z
-        sshpass -p 'passwd' ssh root@127.0.0.1 -p 9999  
+        sshpass -p 'passwd' ssh cityadmin@127.0.0.1 -p 9999  
     else
         echo "Access denied. Incorrect key."
     fi

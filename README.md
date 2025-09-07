@@ -20,11 +20,18 @@ docker compose up -d
 
 + Play
 
-```
-ssh player@127.0.0.1
-```
+  + Connect to the environment
+    ```
+    ssh player@127.0.0.1
+    ```
+    > Password: isc
 
-> Password: isc
+  + Start a new access (execute one more time if not working)
+    ```
+    ./newsess
+    ```
+   
+
 
 + Shut off
 

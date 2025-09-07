@@ -1,4 +1,4 @@
-> ![Note]
+> [!Note]
 > DO NOT UPLOAD API KEY TO GITHUB IR OTHER PUBLIC PLATFORM!!!!!
 
 
